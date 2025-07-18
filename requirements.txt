@@ -1,0 +1,8 @@
+torch
+transformers
+Pillow
+PyMuPDF
+chromadb
+groq
+streamlit
+python-dotenv
