@@ -24,49 +24,6 @@ This project is optimized for easy deployment on Hugging Face Spaces.
 5.  **Query & Retrieve**: When the user asks a question, the query is used to retrieve the most relevant text and image contexts from the database.
 6.  **Generate**: The retrieved context is passed to the Llama 3 model via the Groq API to generate a concise, accurate answer, which is then displayed to the user.
 
-## 🚀 Deployment on Hugging Face Spaces
-
-Deploying NexusRAG is straightforward.
-
-1.  **Create a New Space**:
-    *   Go to [Hugging Face Spaces](https://huggingface.co/new-space) and click "Create new Space".
-    *   Give it a name (e.g., `YourName/NexusRAG`).
-    *   Select "Streamlit" as the Space SDK.
-    *   Choose a hardware resource. A "CPU upgrade" is recommended for faster model loading.
-    *   Choose "Public" or "Private".
-
-2.  **Add Your Groq API Key**:
-    *   In your new Space, go to the "Settings" tab.
-    *   Find the "Repository secrets" section.
-    *   Click "New secret" and add your `GROQ_API_KEY`. The app will be able to access this securely. **Do not write your key in the code.**
-
-3.  **Upload Your Files**:
-    *   Go to the "Files" tab and upload all the files from this repository. You can do this via the web interface or by using `git`.
-
-The Space will automatically build and launch your Streamlit application.
-
-## 💻 Local Development
-
-1.  **Clone the repository:**
-    ```bash
-    git clone https://github.com/YOUR_USERNAME/NexusRAG.git
-    cd NexusRAG
-    ```
-2.  **Create a virtual environment and install dependencies:**
-    ```bash
-    python -m venv venv
-    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-    pip install -r requirements.txt
-    ```
-3.  **Set up your environment variables:**
-    ```bash
-    cp .env.example .env
-    # Now edit the .env file and add your GROQ_API_KEY
-    ```
-4.  **Run the Streamlit app:**
-    ```bash
-    streamlit run app/streamlit_app.py
-    ```
 
 ## 📄 License
 
