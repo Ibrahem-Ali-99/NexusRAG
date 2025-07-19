@@ -1,14 +1,3 @@
----
-title: NexusRAG
-emoji: 🤖
-colorFrom: purple
-colorTo: blue
-sdk: streamlit
-sdk_version: "1.35.0"
-app_file: app/streamlit_app.py
-pinned: false
----
-
 # NexusRAG 🤖✨
 
 A multimodal Retrieval-Augmented Generation (RAG) system that understands both text and images in PDF documents, built with Streamlit and the Groq API.
