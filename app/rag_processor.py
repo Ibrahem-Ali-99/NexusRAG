@@ -63,14 +63,23 @@ class MultimodalRAGProcessor:
             print(f"Stored {len(all_ids)} text and image chunks in the database.")
 
     def query_rag(self, user_query, n_results=5):
+        image_query_text = f"An image or diagram of: {user_query}"
+
         text_embedding = self._get_text_embedding(user_query).tolist()
-        
+        image_embedding = self._get_text_embedding(image_query_text).tolist()
+
         results = self.collection.query(
-            query_embeddings=[text_embedding],
+            query_embeddings=[text_embedding, image_embedding],
             n_results=n_results
         )
-        
-        unique_docs = set(doc for doc_list in results['documents'] for doc in doc_list)
+
+        retrieved_documents = results['documents']
+
+        unique_docs = set()
+        for doc_list in retrieved_documents:
+            for doc in doc_list:
+                unique_docs.add(doc)
+
         context = "\n\n---\n\n".join(list(unique_docs))
         return context
 
